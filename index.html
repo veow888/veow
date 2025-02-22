@@ -17,11 +17,8 @@
 
         body {
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: linear-gradient(135deg, #0f172a, #1e293b);
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
         }
 
@@ -163,7 +160,6 @@
             margin-top: 1rem;
         }
 
-        /* تحديث أنماط الأزرار */
         button {
             width: 100%;
             padding: 1.6rem;
@@ -182,11 +178,10 @@
             justify-content: center;
             gap: 1rem;
             letter-spacing: 0.5px;
-            outline: none; /* إزالة الحدود الزرقاء */
-            -webkit-tap-highlight-color: transparent; /* إزالة تأثير النقر على الموبايل */
+            outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* إضافة توهج دائم حول الأزرار */
         button::after {
             content: '';
             position: absolute;
@@ -198,7 +193,6 @@
             transition: opacity 0.3s;
         }
 
-        /* تأثير اللمعان المستمر */
         @keyframes continuousShine {
             0% {
                 left: -100%;
@@ -225,7 +219,6 @@
             animation: continuousShine 3s linear infinite;
         }
 
-        /* تأثير النقر */
         button:active {
             transform: scale(0.95);
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
@@ -307,6 +300,185 @@
             }
         }
 
+        .learn-more-button {
+            position: absolute;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            z-index: 2;
+            width: auto;
+        }
+
+        .learn-more-button i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .learn-more-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .features-section {
+            min-height: 100vh;
+            background: linear-gradient(0deg, #0f172a, transparent);
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .features-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-title {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .features-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #60a5fa;
+            border-radius: 3px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transition: 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover i {
+            transform: scale(1.1);
+            color: #3b82f6;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .telegram-section {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 2rem auto;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .telegram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: rgba(96, 165, 250, 0.1);
+        }
+
+        .telegram-link:hover {
+            background: rgba(96, 165, 250, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .telegram-link i {
+            font-size: 1.4rem;
+        }
+
         @media (max-width: 768px) {
             .content {
                 padding: 1.5rem;
@@ -330,6 +502,29 @@
                 font-size: 1.1rem;
                 margin-top: 3rem;
                 padding: 0.8rem 1.5rem;
+            }
+
+            .features-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .features-title {
+                font-size: 1.8rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .learn-more-button {
+                bottom: 4.5rem;
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .telegram-link {
+                font-size: 1rem;
+                padding: 0.7rem 1.2rem;
             }
         }
 
@@ -356,6 +551,11 @@
             .welcome-text {
                 font-size: 1rem;
                 margin: 2.5rem 0.5rem 0;
+            }
+
+            .learn-more-button {
+                bottom: 3.5rem;
+                padding: 0.6rem 1rem;
             }
         }
 
@@ -402,9 +602,58 @@
         <div class="welcome-text">
             انضم إلينا الآن واحصل على كروت شحن مجانية
         </div>
+        
+        <button class="learn-more-button" onclick="scrollToFeatures()">
+            لمعرفة المزيد
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <section class="features-section" id="features">
+        <h2 class="features-title">مميزات موقعنا</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-gift"></i>
+                <h3>كروت مجانية</h3>
+                <p>احصل على كروت شحن مجانية لجميع الشبكات بشكل يومي</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>حماية وأمان</h3>
+                <p>نظام حماية متطور لضمان أمان حسابك وبياناتك الشخصية</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-sync"></i>
+                <h3>تحديثات مستمرة</h3>
+                <p>نقدم تحديثات دورية وعروض جديدة بشكل مستمر</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <h3>دعم فني</h3>
+                <p>فريق دعم فني متكامل لمساعدتك على مدار الساعة</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>مجتمع نشط</h3>
+                <p>انضم إلى مجتمع من المستخدمين النشطين وشارك تجاربك معهم</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>تطبيق جوال</h3>
+                <p>احصل على تجربة سلسة عبر تطبيقنا المخصص للهواتف الذكية</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="telegram-section">
+        <a href="https://t.me/veow_free" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram-plane"></i>
+            انضم لقناة التليجرام
+        </a>
     </div>
 
     <script>
+        // Create stars background
         const starsContainer = document.querySelector('.stars');
         const numberOfStars = 150;
 
@@ -427,6 +676,23 @@
             star.style.setProperty('--opacity', `${0.5 + Math.random() * 0.5}`);
             starsContainer.appendChild(star);
         }
+
+        // Smooth scroll to features section
+        function scrollToFeatures() {
+            const featuresSection = document.getElementById('features');
+            featuresSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Intersection Observer for features section animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe(document.querySelector('.features-section'));
     </script>
 </body>
-</html>
+    </html>
